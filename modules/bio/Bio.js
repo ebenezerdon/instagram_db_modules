@@ -1,4 +1,4 @@
-import EditBioForm from './forms/EditBio.js';
+import EditBioForm from './EditBio.js';
 
 const Bio = () => {
   return `
