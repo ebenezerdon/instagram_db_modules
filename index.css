@@ -87,6 +87,34 @@ nav {
   cursor: pointer;
 }
 
+.edit-bio-form {
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17em;
+  height: 7em;
+  padding: 1em;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 3px 0px #333333bf;
+}
+
+.edit-bio-form input {
+  margin-bottom: 0.5em;
+  height: 2.5em;
+  width: 19em;
+}
+
+.edit-bio-form button {
+  background: #464646;
+  color: #fff;
+  cursor: pointer;
+  height: 2em;
+}
+
 #addPhotoInput {
   display: none;
 }
