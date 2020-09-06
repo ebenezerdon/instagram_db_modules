@@ -1,28 +1,33 @@
-let database = {}
+let database
 
 const request = indexedDB.open('instagram', 1)
 
-request.onerror = () => {
-  console.log('Error creating or accessing db')
-}
-
 request.onsuccess = event => {
-  database = request.result
+  database = event.target.result
   console.log('Success creating or accessing db')
 }
 
-request.onupgradeneeded = () => {
-  database = request.result
-
-  const bio = database.createObjectStore('bio')
-  bio.createIndex('name')
-  bio.createIndex('displayImageUrl')
-  bio.createIndex('description')
-
-  const gallery = database.createObjectStore('gallery')
-  gallery.createIndex('id', 'id', { unique: true })
-  gallery.createIndex('text', 'text')
-  gallery.createIndex('imageUrl', 'imageUrl')
+request.onupgradeneeded = event => {
+  database = event.target.result
+  database.createObjectStore('bio', {autoIncrement: true})
+  database.createObjectStore('gallery', {autoIncrement: true})
 }
 
-export default database
+request.onerror = event => {
+  alert('Error creating or accessing db')
+  console.log(event.target)
+}
+
+const addEntryToDb = (storeName, entry) => {
+  const transaction = database.transaction([storeName], 'readwrite')
+  const store = transaction.objectStore(storeName)
+  store.add(entry)
+
+  transaction.oncomplete = () => alert(`Entry added to ${storeName}!`)
+  transaction.onerror = event => {
+    console.log(`error adding Entry to ${storeName}.`)
+    console.log(event.target.error);
+  }
+}
+
+export { addEntryToDb }
