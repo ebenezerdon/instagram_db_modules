@@ -30,4 +30,18 @@ const addEntryToDb = (storeName, entry) => {
   }
 }
 
-export { addEntryToDb }
+const getEntryFromDb = (storeName, id) => {
+  const transaction = database.transaction([storeName])
+  const store = transaction.objectStore(storeName)
+  const request = id ? store.get(id) : store.getAll()
+
+  request.onerror = () => {
+    console.log('error getting data from the store');
+  }
+
+  request.onsuccess = () => {
+    console.log('sucess', request.result)
+  }
+}
+
+export { addEntryToDb, getEntryFromDb }
