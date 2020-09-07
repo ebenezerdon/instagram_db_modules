@@ -6,8 +6,8 @@ import Nav from './modules/nav/Nav.js'
 
 const App = () => {
   setTimeout(() => {
-    getEntryFromDb('bio')
-  }, 3000)
+    getEntryFromDb('bio', 9)
+  }, 1000)
 
   return `
     ${Nav()}
