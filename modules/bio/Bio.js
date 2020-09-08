@@ -1,9 +1,9 @@
 import EditBioForm from './EditBio.js'
 import { getEntryFromDb } from '../../database.js'
 
-const Bio = () => {
-  const userInfo = getEntryFromDb('bio')
-  console.log('userinfo', userInfo)
+const Bio = async () => {
+  const userInfo = await getEntryFromDb('bio')
+  console.log(userInfo)
   return `
   <section class="bio">
     <div class="profile-photo">
