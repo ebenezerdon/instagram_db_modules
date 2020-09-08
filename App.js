@@ -4,7 +4,7 @@ import addBioEventListeners from './modules/bio/events.js';
 import Gallery from './modules/gallery/Gallery.js'
 import Nav from './modules/nav/Nav.js'
 
-const App = () => {
+const App = async () => {
   // setTimeout(() => {
   //   getEntryFromDb('bio', 9)
   // }, 1000)
@@ -12,13 +12,13 @@ const App = () => {
   return `
     ${Nav()}
     <div class="container">
-      ${Bio()}
+      ${await Bio()}
       ${Gallery()}
     </div>
   `
 }
 
-initializeDb.onsuccess = () => {
-  document.getElementById('root').innerHTML = App()
+initializeDb.onsuccess = async () => {
+  document.getElementById('root').innerHTML = await App()
   addBioEventListeners()
 }
