@@ -1,19 +1,19 @@
 let database
 
-const request = indexedDB.open('instagram', 1)
+const initializeDb = indexedDB.open('instagram', 1)
 
-request.onsuccess = event => {
+initializeDb.onsuccess = event => {
   database = event.target.result
   console.log('Success creating or accessing db')
 }
 
-request.onupgradeneeded = event => {
+initializeDb.onupgradeneeded = event => {
   database = event.target.result
   database.createObjectStore('bio', {autoIncrement: true})
   database.createObjectStore('gallery', {autoIncrement: true})
 }
 
-request.onerror = event => {
+initializeDb.onerror = event => {
   alert('Error creating or accessing db')
   console.log(event.target)
 }
@@ -31,17 +31,27 @@ const addEntryToDb = (storeName, entry) => {
 }
 
 const getEntryFromDb = (storeName, id) => {
-  const transaction = database.transaction([storeName])
+  const transaction = initializeDb.result.transaction([storeName])
   const store = transaction.objectStore(storeName)
   const request = id ? store.get(id) : store.getAll()
-
   request.onerror = () => {
     console.log('error getting data from the store');
   }
 
   request.onsuccess = () => {
-    console.log('sucess', request.result)
+    console.log('success', request.result)
+    return request.result
   }
+
+  return setTimeout(() => {
+    request.onsuccess()
+  }, 200);
 }
 
-export { addEntryToDb, getEntryFromDb }
+const clearAllEntries = (storeName) => {
+  const transaction = database.transaction([storeName], 'readwrite')
+  const store = transaction.objectStore(storeName)
+  store.clear()
+}
+
+export { initializeDb, addEntryToDb, getEntryFromDb, clearAllEntries }
