@@ -18,7 +18,7 @@ const App = () => {
   `
 }
 
-initializeDb.onsuccess = event => {
+initializeDb.onsuccess = () => {
   document.getElementById('root').innerHTML = App()
   addBioEventListeners()
 }
