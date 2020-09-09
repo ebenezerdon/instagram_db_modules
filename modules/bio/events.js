@@ -13,8 +13,13 @@ const addBioEventListeners = () => {
     event.preventDefault()
     const name = document.querySelector('#name').value
     const about = document.querySelector('#about').value
+    const nameElement = document.querySelector('.name')
+    const aboutElement = document.querySelector('.about')
     clearAllEntries('bio')
     addEntryToDb('bio', { name, about })
+    nameElement.innerText = name
+    aboutElement.innerText = about
+    editBioForm.style.display = 'none'
   })
 
   cancelFormButton.addEventListener('click', () => {
