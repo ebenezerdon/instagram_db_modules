@@ -1,3 +1,4 @@
+import { addEntryToDb } from '../../database.js'
 
 const addGalleryEventListeners = () => {
   const photoInput = document.querySelector('#addPhotoInput')
@@ -6,7 +7,7 @@ const addGalleryEventListeners = () => {
     reader.readAsDataURL(photoInput.files[0])
 
     reader.addEventListener('load', () => {
-      console.log(reader.result)
+      addEntryToDb('gallery', reader.result)
     })
   })
 }
