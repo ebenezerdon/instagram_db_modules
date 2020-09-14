@@ -1,4 +1,4 @@
-import { addEntryToDb } from '../../database.js'
+import { addEntryToDb, getEntryFromDb } from '../../database.js'
 
 const addGalleryEventListeners = () => {
   const photoInput = document.querySelector('#addPhotoInput')
@@ -12,4 +12,18 @@ const addGalleryEventListeners = () => {
   })
 }
 
-export default addGalleryEventListeners
+const addImagesToGallery = async () => {
+  const gallerySection = document.querySelector('.gallery')
+  const galleryData = await getEntryFromDb('gallery')
+  const galleryItems = galleryData.map(singlePhoto => {
+    console.log({singlePhoto});
+    return `
+      <a href="#" class="item">
+        <img alt="stuff" src=${singlePhoto}>
+      </a>
+    `
+  })
+  gallerySection.innerHTML = galleryItems.join('')
+}
+
+export { addGalleryEventListeners, addImagesToGallery }
