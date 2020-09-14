@@ -14,7 +14,7 @@ const App = async () => {
     ${Nav()}
     <div class="container">
       ${await Bio()}
-      ${Gallery()}
+      ${await Gallery()}
     </div>
   `
 }
