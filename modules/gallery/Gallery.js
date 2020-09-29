@@ -7,7 +7,11 @@ const Gallery = () => {
       <i class="add-photo fas fa-plus-square"></i>
     </label>
     <div class="gallery-nav"></div>
-    <section class="gallery"></section>
+    <section class="gallery">
+      <div class="gallery-loader">
+        <img src="./loader.svg" alt="">
+      </div>
+    </section>
   `
 }
 

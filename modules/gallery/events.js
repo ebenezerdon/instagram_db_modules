@@ -23,6 +23,7 @@ const addImagesToGallery = async () => {
       </a>
     `
   })
+  gallerySection.style.display = 'grid'
   gallerySection.innerHTML = galleryItems.join('')
 }
 
