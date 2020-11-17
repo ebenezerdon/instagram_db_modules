@@ -22,7 +22,7 @@ const addEntryToDb = (storeName, entry) => {
   const store = transaction.objectStore(storeName)
   store.add(entry)
 
-  transaction.oncomplete = () => alert(`Entry added to ${storeName}!`)
+  // transaction.oncomplete = () => alert(`Entry added to ${storeName}!`)
   transaction.onerror = () => {
     console.log(`error adding Entry to ${storeName}.`)
     console.log(transaction.error);
