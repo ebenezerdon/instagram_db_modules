@@ -1,3 +1,5 @@
+Here's a [link to the hosted app](https://ebenezerdon.github.io/instagram_db_modules/)
+
 ![Video thumbnail](https://res.cloudinary.com/ebenezerdn/image/upload/v1601628681/thumbnail_xborxn.png)
 ## Database Management and Modularization with JavaScript and IndexedDb
 
