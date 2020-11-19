@@ -10,6 +10,7 @@ const Nav = () => `
       <a href="#"><i class="far fa-compass"></i></a>
       <a href="#"><i class="far fa-heart"></i></a>
     </span>
+    <button class="signout-button">Sign out</button>
   </nav>
 `
 export default Nav;
