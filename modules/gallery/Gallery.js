@@ -1,5 +1,3 @@
-import { getEntryFromDb } from '../../database.js'
-
 const Gallery = () => {
   return `
     <input type="file" name="photo" id="addPhotoInput" accept="image/*">

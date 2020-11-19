@@ -1,0 +1,21 @@
+.auth {
+  display: none;
+}
+
+.auth-info {
+  font-size: 1.1em;
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form input {
+  display: block;
+  margin-bottom: 1.2em;
+  width: 70%;
+}
+
+.cancel-auth-button {
+  margin-left: 3em;
+}

@@ -1,5 +1,5 @@
 // let database
-const initializeDb = indexedDB.open('instagram', 1)
+const initializeDb = indexedDB.open('instagram', 2)
 
 // initializeDb.onsuccess = () => {
 //   database = initializeDb.result
@@ -8,8 +8,9 @@ const initializeDb = indexedDB.open('instagram', 1)
 
 initializeDb.onupgradeneeded = () => {
   const database = initializeDb.result
-  database.createObjectStore('bio', {autoIncrement: true})
-  database.createObjectStore('gallery', {autoIncrement: true})
+  // database.createObjectStore('bio', {autoIncrement: true})
+  // database.createObjectStore('gallery', {autoIncrement: true})
+  database.createObjectStore('auth', {autoIncrement: true})
 }
 
 initializeDb.onerror = () => {
