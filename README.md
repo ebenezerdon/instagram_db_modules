@@ -6,8 +6,6 @@ Here's a [link to the hosted app](https://ebenezerdon.github.io/instagram_db_mod
 This repository is for my course on Database management and modularization for frontend developers.
 In this course, we'll learn database management and modularization with JavaScript and IndexedDb by building a personal Instagram application.
 
-Support me by taking the course on Skillshare. You'll get a 14 days free trial with this link: https://skl.sh/3joqGI4
-
 Here's a link to the course on YouTube: https://youtu.be/efw7PtwD-0k <br>
 
 Follow me on social media:
